@@ -1,10 +1,14 @@
+#The ML model using Logistic Regression
+
 import pandas as pd
 import numpy as np
-
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 import re
 import string
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
 true_data = pd.read_csv("csv files/True.csv")
 fake_data = pd.read_csv("csv files/Fake.csv")
 true_data["class"] = 1
@@ -24,7 +28,7 @@ manual_testing.to_csv("manual.csv")
 merged_data = pd.concat([true_data,fake_data],axis=0) 
 md = merged_data.head()
 
-#this will remove every collumn besides the texy and the 0, 1 value
+#this will remove every collumn besides the texty and the 0, 1 value
 unnecessary = merged_data.drop(["subject","title","date"],axis=1)
 uh = unnecessary.head()
 
@@ -37,9 +41,6 @@ y = unnecessary["class"]
 
 x_train, x_test, y_train,y_test = train_test_split(x,y,test_size=0.25)
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-
 vector = TfidfVectorizer()
 xv_train  = vector.fit_transform(x_train)
 xv_test = vector.transform(x_test)
@@ -49,15 +50,13 @@ LR.fit(xv_train,y_train)
 LR.score(xv_test,y_test)
 
 pred_LR = LR.predict(xv_test)
-print(classification_report(y_test,pred_LR))
 
 def output_label(n):
-    if n ==0:
+    if n == 0:
         return False
-        # return "The text is Fake News"
-    elif n==1:
+    elif n == 1:
         return True
-        # return "The text is True News"
+    
 def manual_testing(news):
     testing_news = {"text":[news]}
     new_def_test = pd.DataFrame(testing_news)
@@ -67,6 +66,5 @@ def manual_testing(news):
     
     theData = output_label(pred_LR)
     return theData
-    # return print(f'LR Prediction: {output_label(pred_LR)}\n')
 
 
