@@ -1,4 +1,4 @@
-#This creates the flsk server
+#This creates the flask server
 
 from flask import Flask
 
