@@ -1,3 +1,72 @@
-h1 {
-    color:aqua;
+* {
+    padding: 0;
+    margin: 0;
+    font-family:"Poiret One";
+    text-align: 0;
+}
+
+.instructions {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(206, 82, 82);
+}
+
+.header {
+    background-color: #f1f1f1;
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+}
+.buttons {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+.space {
+    width: 5vw;
+    display: inline-block
+}
+
+.inputBox1 {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    /* margin: 8px 0; */
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.confirmButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirmButton:hover {
+    opacity: 0.8;
+}
+
+.text {
+    font-size: 1.3em;
+    font-family:"Poiret One";
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
 }
