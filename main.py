@@ -9,7 +9,6 @@ def create_app():
   app.config["SECRET_KEY"] = "123321123321"
 
   from views import views
-  
   app.register_blueprint(views, url_prefix="/")  
   return app
 
